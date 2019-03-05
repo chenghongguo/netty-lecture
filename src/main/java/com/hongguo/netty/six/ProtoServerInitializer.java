@@ -1,0 +1,30 @@
+package com.hongguo.netty.six;
+
+import com.hongguo.netty.proto.DataInfo;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+
+/**
+ * @author hongguo_cheng
+ * @date 2019-03-04
+ * @description
+ */
+public class ProtoServerInitializer extends ChannelInitializer<SocketChannel> {
+
+    @Override
+    protected void initChannel(SocketChannel ch) throws Exception {
+        ChannelPipeline pipeline = ch.pipeline();
+
+        pipeline.addLast(new ProtobufVarint32FrameDecoder());
+        pipeline.addLast(new ProtobufDecoder(DataInfo.Student.getDefaultInstance()));
+        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
+        pipeline.addLast(new ProtobufEncoder());
+        pipeline.addLast(new ProtoServerHandler());
+    }
+
+}
