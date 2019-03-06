@@ -5,14 +5,34 @@ package tutorial;
 option java_package = "com.hongguo.netty.proto";
 option java_outer_classname = "DataInfo";
 
-message Student {
-    required string name = 1;
-    required int32 age = 2;
-    optional string address = 3;
+message MyDataInfo {
+    enum DataType {
+        PERSON = 1;
+        DOG = 2;
+        CAT = 3;
+    }
+
+    required DataType dataType = 1;
+
+    oneof One{
+        Person person = 2;
+        Dog dog = 3;
+        Cat cat = 4;
+    }
 }
 
 message Person {
     required string name = 1;
     required int32 age = 2;
     optional string address = 3;
+}
+
+message Dog {
+    required string name = 1;
+    required int32 age = 2;
+}
+
+message Cat {
+    required string name = 1;
+    required int32 age = 2;
 }

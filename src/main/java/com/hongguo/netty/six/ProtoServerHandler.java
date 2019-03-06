@@ -9,15 +9,21 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @date 2019-03-04
  * @description
  */
-public class ProtoServerHandler extends SimpleChannelInboundHandler<DataInfo.Student> {
+public class ProtoServerHandler extends SimpleChannelInboundHandler<DataInfo.MyDataInfo> {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, DataInfo.Student msg) throws Exception {
-        System.out.println(msg.getName());
-        System.out.println(msg.getAge());
-        System.out.println(msg.getAddress());
+    protected void channelRead0(ChannelHandlerContext ctx, DataInfo.MyDataInfo msg) throws Exception {
 
-        DataInfo.Person person = DataInfo.Person.newBuilder().setName("李四").setAge(20).setAddress("上海").build();
-        ctx.channel().writeAndFlush(person);
+        if (msg.getDataType() == DataInfo.MyDataInfo.DataType.PERSON) {
+            System.out.println(msg.getPerson().getName());
+            System.out.println(msg.getPerson().getAge());
+            System.out.println(msg.getPerson().getAddress());
+        } else if (msg.getDataType() == DataInfo.MyDataInfo.DataType.DOG) {
+            System.out.println(msg.getDog().getName());
+            System.out.println(msg.getDog().getAge());
+        } else {
+            System.out.println(msg.getCat().getName());
+            System.out.println(msg.getCat().getAge());
+        }
     }
 }

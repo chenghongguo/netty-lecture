@@ -14,62 +14,74 @@ public final class DataInfo {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface StudentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:tutorial.Student)
+  public interface MyDataInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:tutorial.MyDataInfo)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string name = 1;</code>
+     * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
      */
-    boolean hasName();
+    boolean hasDataType();
     /**
-     * <code>required string name = 1;</code>
+     * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
      */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
+    com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType getDataType();
 
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>optional .tutorial.Person person = 2;</code>
      */
-    boolean hasAge();
+    boolean hasPerson();
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>optional .tutorial.Person person = 2;</code>
      */
-    int getAge();
+    com.hongguo.netty.proto.DataInfo.Person getPerson();
+    /**
+     * <code>optional .tutorial.Person person = 2;</code>
+     */
+    com.hongguo.netty.proto.DataInfo.PersonOrBuilder getPersonOrBuilder();
 
     /**
-     * <code>optional string address = 3;</code>
+     * <code>optional .tutorial.Dog dog = 3;</code>
      */
-    boolean hasAddress();
+    boolean hasDog();
     /**
-     * <code>optional string address = 3;</code>
+     * <code>optional .tutorial.Dog dog = 3;</code>
      */
-    java.lang.String getAddress();
+    com.hongguo.netty.proto.DataInfo.Dog getDog();
     /**
-     * <code>optional string address = 3;</code>
+     * <code>optional .tutorial.Dog dog = 3;</code>
      */
-    com.google.protobuf.ByteString
-        getAddressBytes();
+    com.hongguo.netty.proto.DataInfo.DogOrBuilder getDogOrBuilder();
+
+    /**
+     * <code>optional .tutorial.Cat cat = 4;</code>
+     */
+    boolean hasCat();
+    /**
+     * <code>optional .tutorial.Cat cat = 4;</code>
+     */
+    com.hongguo.netty.proto.DataInfo.Cat getCat();
+    /**
+     * <code>optional .tutorial.Cat cat = 4;</code>
+     */
+    com.hongguo.netty.proto.DataInfo.CatOrBuilder getCatOrBuilder();
+
+    public com.hongguo.netty.proto.DataInfo.MyDataInfo.OneCase getOneCase();
   }
   /**
-   * Protobuf type {@code tutorial.Student}
+   * Protobuf type {@code tutorial.MyDataInfo}
    */
-  public  static final class Student extends
+  public  static final class MyDataInfo extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:tutorial.Student)
-      StudentOrBuilder {
+      // @@protoc_insertion_point(message_implements:tutorial.MyDataInfo)
+      MyDataInfoOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Student.newBuilder() to construct.
-    private Student(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use MyDataInfo.newBuilder() to construct.
+    private MyDataInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Student() {
-      name_ = "";
-      address_ = "";
+    private MyDataInfo() {
+      dataType_ = 1;
     }
 
     @java.lang.Override
@@ -77,7 +89,7 @@ public final class DataInfo {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Student(
+    private MyDataInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -96,21 +108,58 @@ public final class DataInfo {
             case 0:
               done = true;
               break;
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              name_ = bs;
+            case 8: {
+              int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
+              com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType value = com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                dataType_ = rawValue;
+              }
               break;
             }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              age_ = input.readInt32();
+            case 18: {
+              com.hongguo.netty.proto.DataInfo.Person.Builder subBuilder = null;
+              if (oneCase_ == 2) {
+                subBuilder = ((com.hongguo.netty.proto.DataInfo.Person) one_).toBuilder();
+              }
+              one_ =
+                  input.readMessage(com.hongguo.netty.proto.DataInfo.Person.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.hongguo.netty.proto.DataInfo.Person) one_);
+                one_ = subBuilder.buildPartial();
+              }
+              oneCase_ = 2;
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
-              address_ = bs;
+              com.hongguo.netty.proto.DataInfo.Dog.Builder subBuilder = null;
+              if (oneCase_ == 3) {
+                subBuilder = ((com.hongguo.netty.proto.DataInfo.Dog) one_).toBuilder();
+              }
+              one_ =
+                  input.readMessage(com.hongguo.netty.proto.DataInfo.Dog.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.hongguo.netty.proto.DataInfo.Dog) one_);
+                one_ = subBuilder.buildPartial();
+              }
+              oneCase_ = 3;
+              break;
+            }
+            case 34: {
+              com.hongguo.netty.proto.DataInfo.Cat.Builder subBuilder = null;
+              if (oneCase_ == 4) {
+                subBuilder = ((com.hongguo.netty.proto.DataInfo.Cat) one_).toBuilder();
+              }
+              one_ =
+                  input.readMessage(com.hongguo.netty.proto.DataInfo.Cat.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.hongguo.netty.proto.DataInfo.Cat) one_);
+                one_ = subBuilder.buildPartial();
+              }
+              oneCase_ = 4;
               break;
             }
             default: {
@@ -134,115 +183,250 @@ public final class DataInfo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Student_descriptor;
+      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_MyDataInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Student_fieldAccessorTable
+      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_MyDataInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.hongguo.netty.proto.DataInfo.Student.class, com.hongguo.netty.proto.DataInfo.Student.Builder.class);
+              com.hongguo.netty.proto.DataInfo.MyDataInfo.class, com.hongguo.netty.proto.DataInfo.MyDataInfo.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code tutorial.MyDataInfo.DataType}
+     */
+    public enum DataType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>PERSON = 1;</code>
+       */
+      PERSON(1),
+      /**
+       * <code>DOG = 2;</code>
+       */
+      DOG(2),
+      /**
+       * <code>CAT = 3;</code>
+       */
+      CAT(3),
+      ;
+
+      /**
+       * <code>PERSON = 1;</code>
+       */
+      public static final int PERSON_VALUE = 1;
+      /**
+       * <code>DOG = 2;</code>
+       */
+      public static final int DOG_VALUE = 2;
+      /**
+       * <code>CAT = 3;</code>
+       */
+      public static final int CAT_VALUE = 3;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static DataType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static DataType forNumber(int value) {
+        switch (value) {
+          case 1: return PERSON;
+          case 2: return DOG;
+          case 3: return CAT;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<DataType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          DataType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<DataType>() {
+              public DataType findValueByNumber(int number) {
+                return DataType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.hongguo.netty.proto.DataInfo.MyDataInfo.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final DataType[] VALUES = values();
+
+      public static DataType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private DataType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:tutorial.MyDataInfo.DataType)
     }
 
     private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    private int oneCase_ = 0;
+    private java.lang.Object one_;
+    public enum OneCase
+        implements com.google.protobuf.Internal.EnumLite {
+      PERSON(2),
+      DOG(3),
+      CAT(4),
+      ONE_NOT_SET(0);
+      private final int value;
+      private OneCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static OneCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static OneCase forNumber(int value) {
+        switch (value) {
+          case 2: return PERSON;
+          case 3: return DOG;
+          case 4: return CAT;
+          case 0: return ONE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public OneCase
+    getOneCase() {
+      return OneCase.forNumber(
+          oneCase_);
+    }
+
+    public static final int DATATYPE_FIELD_NUMBER = 1;
+    private int dataType_;
     /**
-     * <code>required string name = 1;</code>
+     * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
      */
-    public boolean hasName() {
+    public boolean hasDataType() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required string name = 1;</code>
+     * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType getDataType() {
+      @SuppressWarnings("deprecation")
+      com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType result = com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType.valueOf(dataType_);
+      return result == null ? com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType.PERSON : result;
     }
 
-    public static final int AGE_FIELD_NUMBER = 2;
-    private int age_;
+    public static final int PERSON_FIELD_NUMBER = 2;
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>optional .tutorial.Person person = 2;</code>
      */
-    public boolean hasAge() {
-      return ((bitField0_ & 0x00000002) != 0);
+    public boolean hasPerson() {
+      return oneCase_ == 2;
     }
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>optional .tutorial.Person person = 2;</code>
      */
-    public int getAge() {
-      return age_;
+    public com.hongguo.netty.proto.DataInfo.Person getPerson() {
+      if (oneCase_ == 2) {
+         return (com.hongguo.netty.proto.DataInfo.Person) one_;
+      }
+      return com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance();
+    }
+    /**
+     * <code>optional .tutorial.Person person = 2;</code>
+     */
+    public com.hongguo.netty.proto.DataInfo.PersonOrBuilder getPersonOrBuilder() {
+      if (oneCase_ == 2) {
+         return (com.hongguo.netty.proto.DataInfo.Person) one_;
+      }
+      return com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance();
     }
 
-    public static final int ADDRESS_FIELD_NUMBER = 3;
-    private volatile java.lang.Object address_;
+    public static final int DOG_FIELD_NUMBER = 3;
     /**
-     * <code>optional string address = 3;</code>
+     * <code>optional .tutorial.Dog dog = 3;</code>
      */
-    public boolean hasAddress() {
-      return ((bitField0_ & 0x00000004) != 0);
+    public boolean hasDog() {
+      return oneCase_ == 3;
     }
     /**
-     * <code>optional string address = 3;</code>
+     * <code>optional .tutorial.Dog dog = 3;</code>
      */
-    public java.lang.String getAddress() {
-      java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          address_ = s;
-        }
-        return s;
+    public com.hongguo.netty.proto.DataInfo.Dog getDog() {
+      if (oneCase_ == 3) {
+         return (com.hongguo.netty.proto.DataInfo.Dog) one_;
       }
+      return com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
     }
     /**
-     * <code>optional string address = 3;</code>
+     * <code>optional .tutorial.Dog dog = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getAddressBytes() {
-      java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        address_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    public com.hongguo.netty.proto.DataInfo.DogOrBuilder getDogOrBuilder() {
+      if (oneCase_ == 3) {
+         return (com.hongguo.netty.proto.DataInfo.Dog) one_;
       }
+      return com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
+    }
+
+    public static final int CAT_FIELD_NUMBER = 4;
+    /**
+     * <code>optional .tutorial.Cat cat = 4;</code>
+     */
+    public boolean hasCat() {
+      return oneCase_ == 4;
+    }
+    /**
+     * <code>optional .tutorial.Cat cat = 4;</code>
+     */
+    public com.hongguo.netty.proto.DataInfo.Cat getCat() {
+      if (oneCase_ == 4) {
+         return (com.hongguo.netty.proto.DataInfo.Cat) one_;
+      }
+      return com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
+    }
+    /**
+     * <code>optional .tutorial.Cat cat = 4;</code>
+     */
+    public com.hongguo.netty.proto.DataInfo.CatOrBuilder getCatOrBuilder() {
+      if (oneCase_ == 4) {
+         return (com.hongguo.netty.proto.DataInfo.Cat) one_;
+      }
+      return com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -252,13 +436,27 @@ public final class DataInfo {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasName()) {
+      if (!hasDataType()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasAge()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasPerson()) {
+        if (!getPerson().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasDog()) {
+        if (!getDog().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasCat()) {
+        if (!getCat().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -268,13 +466,16 @@ public final class DataInfo {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+        output.writeEnum(1, dataType_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, age_);
+      if (oneCase_ == 2) {
+        output.writeMessage(2, (com.hongguo.netty.proto.DataInfo.Person) one_);
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, address_);
+      if (oneCase_ == 3) {
+        output.writeMessage(3, (com.hongguo.netty.proto.DataInfo.Dog) one_);
+      }
+      if (oneCase_ == 4) {
+        output.writeMessage(4, (com.hongguo.netty.proto.DataInfo.Cat) one_);
       }
       unknownFields.writeTo(output);
     }
@@ -286,14 +487,20 @@ public final class DataInfo {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, age_);
+          .computeEnumSize(1, dataType_);
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, address_);
+      if (oneCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (com.hongguo.netty.proto.DataInfo.Person) one_);
+      }
+      if (oneCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (com.hongguo.netty.proto.DataInfo.Dog) one_);
+      }
+      if (oneCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.hongguo.netty.proto.DataInfo.Cat) one_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -305,25 +512,31 @@ public final class DataInfo {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.hongguo.netty.proto.DataInfo.Student)) {
+      if (!(obj instanceof com.hongguo.netty.proto.DataInfo.MyDataInfo)) {
         return super.equals(obj);
       }
-      com.hongguo.netty.proto.DataInfo.Student other = (com.hongguo.netty.proto.DataInfo.Student) obj;
+      com.hongguo.netty.proto.DataInfo.MyDataInfo other = (com.hongguo.netty.proto.DataInfo.MyDataInfo) obj;
 
-      if (hasName() != other.hasName()) return false;
-      if (hasName()) {
-        if (!getName()
-            .equals(other.getName())) return false;
+      if (hasDataType() != other.hasDataType()) return false;
+      if (hasDataType()) {
+        if (dataType_ != other.dataType_) return false;
       }
-      if (hasAge() != other.hasAge()) return false;
-      if (hasAge()) {
-        if (getAge()
-            != other.getAge()) return false;
-      }
-      if (hasAddress() != other.hasAddress()) return false;
-      if (hasAddress()) {
-        if (!getAddress()
-            .equals(other.getAddress())) return false;
+      if (!getOneCase().equals(other.getOneCase())) return false;
+      switch (oneCase_) {
+        case 2:
+          if (!getPerson()
+              .equals(other.getPerson())) return false;
+          break;
+        case 3:
+          if (!getDog()
+              .equals(other.getDog())) return false;
+          break;
+        case 4:
+          if (!getCat()
+              .equals(other.getCat())) return false;
+          break;
+        case 0:
+        default:
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -336,86 +549,94 @@ public final class DataInfo {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasName()) {
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
+      if (hasDataType()) {
+        hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
+        hash = (53 * hash) + dataType_;
       }
-      if (hasAge()) {
-        hash = (37 * hash) + AGE_FIELD_NUMBER;
-        hash = (53 * hash) + getAge();
-      }
-      if (hasAddress()) {
-        hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getAddress().hashCode();
+      switch (oneCase_) {
+        case 2:
+          hash = (37 * hash) + PERSON_FIELD_NUMBER;
+          hash = (53 * hash) + getPerson().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + DOG_FIELD_NUMBER;
+          hash = (53 * hash) + getDog().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + CAT_FIELD_NUMBER;
+          hash = (53 * hash) + getCat().hashCode();
+          break;
+        case 0:
+        default:
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(byte[] data)
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(java.io.InputStream input)
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseDelimitedFrom(java.io.InputStream input)
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseDelimitedFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.hongguo.netty.proto.DataInfo.Student parseFrom(
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -428,7 +649,7 @@ public final class DataInfo {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.hongguo.netty.proto.DataInfo.Student prototype) {
+    public static Builder newBuilder(com.hongguo.netty.proto.DataInfo.MyDataInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -444,26 +665,26 @@ public final class DataInfo {
       return builder;
     }
     /**
-     * Protobuf type {@code tutorial.Student}
+     * Protobuf type {@code tutorial.MyDataInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:tutorial.Student)
-        com.hongguo.netty.proto.DataInfo.StudentOrBuilder {
+        // @@protoc_insertion_point(builder_implements:tutorial.MyDataInfo)
+        com.hongguo.netty.proto.DataInfo.MyDataInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Student_descriptor;
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_MyDataInfo_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Student_fieldAccessorTable
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_MyDataInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.hongguo.netty.proto.DataInfo.Student.class, com.hongguo.netty.proto.DataInfo.Student.Builder.class);
+                com.hongguo.netty.proto.DataInfo.MyDataInfo.class, com.hongguo.netty.proto.DataInfo.MyDataInfo.Builder.class);
       }
 
-      // Construct using com.hongguo.netty.proto.DataInfo.Student.newBuilder()
+      // Construct using com.hongguo.netty.proto.DataInfo.MyDataInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -481,29 +702,27 @@ public final class DataInfo {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        name_ = "";
+        dataType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000001);
-        age_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        address_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+        oneCase_ = 0;
+        one_ = null;
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Student_descriptor;
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_MyDataInfo_descriptor;
       }
 
       @java.lang.Override
-      public com.hongguo.netty.proto.DataInfo.Student getDefaultInstanceForType() {
-        return com.hongguo.netty.proto.DataInfo.Student.getDefaultInstance();
+      public com.hongguo.netty.proto.DataInfo.MyDataInfo getDefaultInstanceForType() {
+        return com.hongguo.netty.proto.DataInfo.MyDataInfo.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.hongguo.netty.proto.DataInfo.Student build() {
-        com.hongguo.netty.proto.DataInfo.Student result = buildPartial();
+      public com.hongguo.netty.proto.DataInfo.MyDataInfo build() {
+        com.hongguo.netty.proto.DataInfo.MyDataInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -511,23 +730,37 @@ public final class DataInfo {
       }
 
       @java.lang.Override
-      public com.hongguo.netty.proto.DataInfo.Student buildPartial() {
-        com.hongguo.netty.proto.DataInfo.Student result = new com.hongguo.netty.proto.DataInfo.Student(this);
+      public com.hongguo.netty.proto.DataInfo.MyDataInfo buildPartial() {
+        com.hongguo.netty.proto.DataInfo.MyDataInfo result = new com.hongguo.netty.proto.DataInfo.MyDataInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.age_ = age_;
-          to_bitField0_ |= 0x00000002;
+        result.dataType_ = dataType_;
+        if (oneCase_ == 2) {
+          if (personBuilder_ == null) {
+            result.one_ = one_;
+          } else {
+            result.one_ = personBuilder_.build();
+          }
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          to_bitField0_ |= 0x00000004;
+        if (oneCase_ == 3) {
+          if (dogBuilder_ == null) {
+            result.one_ = one_;
+          } else {
+            result.one_ = dogBuilder_.build();
+          }
         }
-        result.address_ = address_;
+        if (oneCase_ == 4) {
+          if (catBuilder_ == null) {
+            result.one_ = one_;
+          } else {
+            result.one_ = catBuilder_.build();
+          }
+        }
         result.bitField0_ = to_bitField0_;
+        result.oneCase_ = oneCase_;
         onBuilt();
         return result;
       }
@@ -566,28 +799,35 @@ public final class DataInfo {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.hongguo.netty.proto.DataInfo.Student) {
-          return mergeFrom((com.hongguo.netty.proto.DataInfo.Student)other);
+        if (other instanceof com.hongguo.netty.proto.DataInfo.MyDataInfo) {
+          return mergeFrom((com.hongguo.netty.proto.DataInfo.MyDataInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.hongguo.netty.proto.DataInfo.Student other) {
-        if (other == com.hongguo.netty.proto.DataInfo.Student.getDefaultInstance()) return this;
-        if (other.hasName()) {
-          bitField0_ |= 0x00000001;
-          name_ = other.name_;
-          onChanged();
+      public Builder mergeFrom(com.hongguo.netty.proto.DataInfo.MyDataInfo other) {
+        if (other == com.hongguo.netty.proto.DataInfo.MyDataInfo.getDefaultInstance()) return this;
+        if (other.hasDataType()) {
+          setDataType(other.getDataType());
         }
-        if (other.hasAge()) {
-          setAge(other.getAge());
-        }
-        if (other.hasAddress()) {
-          bitField0_ |= 0x00000004;
-          address_ = other.address_;
-          onChanged();
+        switch (other.getOneCase()) {
+          case PERSON: {
+            mergePerson(other.getPerson());
+            break;
+          }
+          case DOG: {
+            mergeDog(other.getDog());
+            break;
+          }
+          case CAT: {
+            mergeCat(other.getCat());
+            break;
+          }
+          case ONE_NOT_SET: {
+            break;
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -596,11 +836,23 @@ public final class DataInfo {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasName()) {
+        if (!hasDataType()) {
           return false;
         }
-        if (!hasAge()) {
-          return false;
+        if (hasPerson()) {
+          if (!getPerson().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasDog()) {
+          if (!getDog().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasCat()) {
+          if (!getCat().isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -610,11 +862,11 @@ public final class DataInfo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.hongguo.netty.proto.DataInfo.Student parsedMessage = null;
+        com.hongguo.netty.proto.DataInfo.MyDataInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.hongguo.netty.proto.DataInfo.Student) e.getUnfinishedMessage();
+          parsedMessage = (com.hongguo.netty.proto.DataInfo.MyDataInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -623,190 +875,466 @@ public final class DataInfo {
         }
         return this;
       }
+      private int oneCase_ = 0;
+      private java.lang.Object one_;
+      public OneCase
+          getOneCase() {
+        return OneCase.forNumber(
+            oneCase_);
+      }
+
+      public Builder clearOne() {
+        oneCase_ = 0;
+        one_ = null;
+        onChanged();
+        return this;
+      }
+
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private int dataType_ = 1;
       /**
-       * <code>required string name = 1;</code>
+       * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
        */
-      public boolean hasName() {
+      public boolean hasDataType() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required string name = 1;</code>
+       * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType getDataType() {
+        @SuppressWarnings("deprecation")
+        com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType result = com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType.valueOf(dataType_);
+        return result == null ? com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType.PERSON : result;
       }
       /**
-       * <code>required string name = 1;</code>
+       * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
+      public Builder setDataType(com.hongguo.netty.proto.DataInfo.MyDataInfo.DataType value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        dataType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>required string name = 1;</code>
+       * <code>required .tutorial.MyDataInfo.DataType dataType = 1;</code>
        */
-      public Builder clearName() {
+      public Builder clearDataType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
+        dataType_ = 1;
         onChanged();
         return this;
       }
 
-      private int age_ ;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hongguo.netty.proto.DataInfo.Person, com.hongguo.netty.proto.DataInfo.Person.Builder, com.hongguo.netty.proto.DataInfo.PersonOrBuilder> personBuilder_;
       /**
-       * <code>required int32 age = 2;</code>
+       * <code>optional .tutorial.Person person = 2;</code>
        */
-      public boolean hasAge() {
-        return ((bitField0_ & 0x00000002) != 0);
+      public boolean hasPerson() {
+        return oneCase_ == 2;
       }
       /**
-       * <code>required int32 age = 2;</code>
+       * <code>optional .tutorial.Person person = 2;</code>
        */
-      public int getAge() {
-        return age_;
-      }
-      /**
-       * <code>required int32 age = 2;</code>
-       */
-      public Builder setAge(int value) {
-        bitField0_ |= 0x00000002;
-        age_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 age = 2;</code>
-       */
-      public Builder clearAge() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        age_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object address_ = "";
-      /**
-       * <code>optional string address = 3;</code>
-       */
-      public boolean hasAddress() {
-        return ((bitField0_ & 0x00000004) != 0);
-      }
-      /**
-       * <code>optional string address = 3;</code>
-       */
-      public java.lang.String getAddress() {
-        java.lang.Object ref = address_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            address_ = s;
+      public com.hongguo.netty.proto.DataInfo.Person getPerson() {
+        if (personBuilder_ == null) {
+          if (oneCase_ == 2) {
+            return (com.hongguo.netty.proto.DataInfo.Person) one_;
           }
-          return s;
+          return com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance();
         } else {
-          return (java.lang.String) ref;
+          if (oneCase_ == 2) {
+            return personBuilder_.getMessage();
+          }
+          return com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance();
         }
       }
       /**
-       * <code>optional string address = 3;</code>
+       * <code>optional .tutorial.Person person = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getAddressBytes() {
-        java.lang.Object ref = address_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          address_ = b;
-          return b;
+      public Builder setPerson(com.hongguo.netty.proto.DataInfo.Person value) {
+        if (personBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          one_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          personBuilder_.setMessage(value);
+        }
+        oneCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Person person = 2;</code>
+       */
+      public Builder setPerson(
+          com.hongguo.netty.proto.DataInfo.Person.Builder builderForValue) {
+        if (personBuilder_ == null) {
+          one_ = builderForValue.build();
+          onChanged();
+        } else {
+          personBuilder_.setMessage(builderForValue.build());
+        }
+        oneCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Person person = 2;</code>
+       */
+      public Builder mergePerson(com.hongguo.netty.proto.DataInfo.Person value) {
+        if (personBuilder_ == null) {
+          if (oneCase_ == 2 &&
+              one_ != com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance()) {
+            one_ = com.hongguo.netty.proto.DataInfo.Person.newBuilder((com.hongguo.netty.proto.DataInfo.Person) one_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            one_ = value;
+          }
+          onChanged();
+        } else {
+          if (oneCase_ == 2) {
+            personBuilder_.mergeFrom(value);
+          }
+          personBuilder_.setMessage(value);
+        }
+        oneCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Person person = 2;</code>
+       */
+      public Builder clearPerson() {
+        if (personBuilder_ == null) {
+          if (oneCase_ == 2) {
+            oneCase_ = 0;
+            one_ = null;
+            onChanged();
+          }
+        } else {
+          if (oneCase_ == 2) {
+            oneCase_ = 0;
+            one_ = null;
+          }
+          personBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Person person = 2;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.Person.Builder getPersonBuilder() {
+        return getPersonFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .tutorial.Person person = 2;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.PersonOrBuilder getPersonOrBuilder() {
+        if ((oneCase_ == 2) && (personBuilder_ != null)) {
+          return personBuilder_.getMessageOrBuilder();
+        } else {
+          if (oneCase_ == 2) {
+            return (com.hongguo.netty.proto.DataInfo.Person) one_;
+          }
+          return com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance();
         }
       }
       /**
-       * <code>optional string address = 3;</code>
+       * <code>optional .tutorial.Person person = 2;</code>
        */
-      public Builder setAddress(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        address_ = value;
-        onChanged();
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hongguo.netty.proto.DataInfo.Person, com.hongguo.netty.proto.DataInfo.Person.Builder, com.hongguo.netty.proto.DataInfo.PersonOrBuilder> 
+          getPersonFieldBuilder() {
+        if (personBuilder_ == null) {
+          if (!(oneCase_ == 2)) {
+            one_ = com.hongguo.netty.proto.DataInfo.Person.getDefaultInstance();
+          }
+          personBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.hongguo.netty.proto.DataInfo.Person, com.hongguo.netty.proto.DataInfo.Person.Builder, com.hongguo.netty.proto.DataInfo.PersonOrBuilder>(
+                  (com.hongguo.netty.proto.DataInfo.Person) one_,
+                  getParentForChildren(),
+                  isClean());
+          one_ = null;
+        }
+        oneCase_ = 2;
+        onChanged();;
+        return personBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hongguo.netty.proto.DataInfo.Dog, com.hongguo.netty.proto.DataInfo.Dog.Builder, com.hongguo.netty.proto.DataInfo.DogOrBuilder> dogBuilder_;
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      public boolean hasDog() {
+        return oneCase_ == 3;
+      }
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.Dog getDog() {
+        if (dogBuilder_ == null) {
+          if (oneCase_ == 3) {
+            return (com.hongguo.netty.proto.DataInfo.Dog) one_;
+          }
+          return com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
+        } else {
+          if (oneCase_ == 3) {
+            return dogBuilder_.getMessage();
+          }
+          return com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      public Builder setDog(com.hongguo.netty.proto.DataInfo.Dog value) {
+        if (dogBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          one_ = value;
+          onChanged();
+        } else {
+          dogBuilder_.setMessage(value);
+        }
+        oneCase_ = 3;
         return this;
       }
       /**
-       * <code>optional string address = 3;</code>
+       * <code>optional .tutorial.Dog dog = 3;</code>
        */
-      public Builder clearAddress() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        address_ = getDefaultInstance().getAddress();
-        onChanged();
+      public Builder setDog(
+          com.hongguo.netty.proto.DataInfo.Dog.Builder builderForValue) {
+        if (dogBuilder_ == null) {
+          one_ = builderForValue.build();
+          onChanged();
+        } else {
+          dogBuilder_.setMessage(builderForValue.build());
+        }
+        oneCase_ = 3;
         return this;
       }
       /**
-       * <code>optional string address = 3;</code>
+       * <code>optional .tutorial.Dog dog = 3;</code>
        */
-      public Builder setAddressBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        address_ = value;
-        onChanged();
+      public Builder mergeDog(com.hongguo.netty.proto.DataInfo.Dog value) {
+        if (dogBuilder_ == null) {
+          if (oneCase_ == 3 &&
+              one_ != com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance()) {
+            one_ = com.hongguo.netty.proto.DataInfo.Dog.newBuilder((com.hongguo.netty.proto.DataInfo.Dog) one_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            one_ = value;
+          }
+          onChanged();
+        } else {
+          if (oneCase_ == 3) {
+            dogBuilder_.mergeFrom(value);
+          }
+          dogBuilder_.setMessage(value);
+        }
+        oneCase_ = 3;
         return this;
+      }
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      public Builder clearDog() {
+        if (dogBuilder_ == null) {
+          if (oneCase_ == 3) {
+            oneCase_ = 0;
+            one_ = null;
+            onChanged();
+          }
+        } else {
+          if (oneCase_ == 3) {
+            oneCase_ = 0;
+            one_ = null;
+          }
+          dogBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.Dog.Builder getDogBuilder() {
+        return getDogFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.DogOrBuilder getDogOrBuilder() {
+        if ((oneCase_ == 3) && (dogBuilder_ != null)) {
+          return dogBuilder_.getMessageOrBuilder();
+        } else {
+          if (oneCase_ == 3) {
+            return (com.hongguo.netty.proto.DataInfo.Dog) one_;
+          }
+          return com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .tutorial.Dog dog = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hongguo.netty.proto.DataInfo.Dog, com.hongguo.netty.proto.DataInfo.Dog.Builder, com.hongguo.netty.proto.DataInfo.DogOrBuilder> 
+          getDogFieldBuilder() {
+        if (dogBuilder_ == null) {
+          if (!(oneCase_ == 3)) {
+            one_ = com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
+          }
+          dogBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.hongguo.netty.proto.DataInfo.Dog, com.hongguo.netty.proto.DataInfo.Dog.Builder, com.hongguo.netty.proto.DataInfo.DogOrBuilder>(
+                  (com.hongguo.netty.proto.DataInfo.Dog) one_,
+                  getParentForChildren(),
+                  isClean());
+          one_ = null;
+        }
+        oneCase_ = 3;
+        onChanged();;
+        return dogBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hongguo.netty.proto.DataInfo.Cat, com.hongguo.netty.proto.DataInfo.Cat.Builder, com.hongguo.netty.proto.DataInfo.CatOrBuilder> catBuilder_;
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public boolean hasCat() {
+        return oneCase_ == 4;
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.Cat getCat() {
+        if (catBuilder_ == null) {
+          if (oneCase_ == 4) {
+            return (com.hongguo.netty.proto.DataInfo.Cat) one_;
+          }
+          return com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
+        } else {
+          if (oneCase_ == 4) {
+            return catBuilder_.getMessage();
+          }
+          return com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public Builder setCat(com.hongguo.netty.proto.DataInfo.Cat value) {
+        if (catBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          one_ = value;
+          onChanged();
+        } else {
+          catBuilder_.setMessage(value);
+        }
+        oneCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public Builder setCat(
+          com.hongguo.netty.proto.DataInfo.Cat.Builder builderForValue) {
+        if (catBuilder_ == null) {
+          one_ = builderForValue.build();
+          onChanged();
+        } else {
+          catBuilder_.setMessage(builderForValue.build());
+        }
+        oneCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public Builder mergeCat(com.hongguo.netty.proto.DataInfo.Cat value) {
+        if (catBuilder_ == null) {
+          if (oneCase_ == 4 &&
+              one_ != com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance()) {
+            one_ = com.hongguo.netty.proto.DataInfo.Cat.newBuilder((com.hongguo.netty.proto.DataInfo.Cat) one_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            one_ = value;
+          }
+          onChanged();
+        } else {
+          if (oneCase_ == 4) {
+            catBuilder_.mergeFrom(value);
+          }
+          catBuilder_.setMessage(value);
+        }
+        oneCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public Builder clearCat() {
+        if (catBuilder_ == null) {
+          if (oneCase_ == 4) {
+            oneCase_ = 0;
+            one_ = null;
+            onChanged();
+          }
+        } else {
+          if (oneCase_ == 4) {
+            oneCase_ = 0;
+            one_ = null;
+          }
+          catBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.Cat.Builder getCatBuilder() {
+        return getCatFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      public com.hongguo.netty.proto.DataInfo.CatOrBuilder getCatOrBuilder() {
+        if ((oneCase_ == 4) && (catBuilder_ != null)) {
+          return catBuilder_.getMessageOrBuilder();
+        } else {
+          if (oneCase_ == 4) {
+            return (com.hongguo.netty.proto.DataInfo.Cat) one_;
+          }
+          return com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .tutorial.Cat cat = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hongguo.netty.proto.DataInfo.Cat, com.hongguo.netty.proto.DataInfo.Cat.Builder, com.hongguo.netty.proto.DataInfo.CatOrBuilder> 
+          getCatFieldBuilder() {
+        if (catBuilder_ == null) {
+          if (!(oneCase_ == 4)) {
+            one_ = com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
+          }
+          catBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.hongguo.netty.proto.DataInfo.Cat, com.hongguo.netty.proto.DataInfo.Cat.Builder, com.hongguo.netty.proto.DataInfo.CatOrBuilder>(
+                  (com.hongguo.netty.proto.DataInfo.Cat) one_,
+                  getParentForChildren(),
+                  isClean());
+          one_ = null;
+        }
+        oneCase_ = 4;
+        onChanged();;
+        return catBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -821,41 +1349,41 @@ public final class DataInfo {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:tutorial.Student)
+      // @@protoc_insertion_point(builder_scope:tutorial.MyDataInfo)
     }
 
-    // @@protoc_insertion_point(class_scope:tutorial.Student)
-    private static final com.hongguo.netty.proto.DataInfo.Student DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:tutorial.MyDataInfo)
+    private static final com.hongguo.netty.proto.DataInfo.MyDataInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.hongguo.netty.proto.DataInfo.Student();
+      DEFAULT_INSTANCE = new com.hongguo.netty.proto.DataInfo.MyDataInfo();
     }
 
-    public static com.hongguo.netty.proto.DataInfo.Student getDefaultInstance() {
+    public static com.hongguo.netty.proto.DataInfo.MyDataInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Student>
-        PARSER = new com.google.protobuf.AbstractParser<Student>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MyDataInfo>
+        PARSER = new com.google.protobuf.AbstractParser<MyDataInfo>() {
       @java.lang.Override
-      public Student parsePartialFrom(
+      public MyDataInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Student(input, extensionRegistry);
+        return new MyDataInfo(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Student> parser() {
+    public static com.google.protobuf.Parser<MyDataInfo> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Student> getParserForType() {
+    public com.google.protobuf.Parser<MyDataInfo> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.hongguo.netty.proto.DataInfo.Student getDefaultInstanceForType() {
+    public com.hongguo.netty.proto.DataInfo.MyDataInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1708,16 +2236,1390 @@ public final class DataInfo {
 
   }
 
+  public interface DogOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:tutorial.Dog)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    boolean hasAge();
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    int getAge();
+  }
+  /**
+   * Protobuf type {@code tutorial.Dog}
+   */
+  public  static final class Dog extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:tutorial.Dog)
+      DogOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Dog.newBuilder() to construct.
+    private Dog(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Dog() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Dog(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              age_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Dog_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Dog_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hongguo.netty.proto.DataInfo.Dog.class, com.hongguo.netty.proto.DataInfo.Dog.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AGE_FIELD_NUMBER = 2;
+    private int age_;
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    public boolean hasAge() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    public int getAge() {
+      return age_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAge()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, age_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, age_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hongguo.netty.proto.DataInfo.Dog)) {
+        return super.equals(obj);
+      }
+      com.hongguo.netty.proto.DataInfo.Dog other = (com.hongguo.netty.proto.DataInfo.Dog) obj;
+
+      if (hasName() != other.hasName()) return false;
+      if (hasName()) {
+        if (!getName()
+            .equals(other.getName())) return false;
+      }
+      if (hasAge() != other.hasAge()) return false;
+      if (hasAge()) {
+        if (getAge()
+            != other.getAge()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasAge()) {
+        hash = (37 * hash) + AGE_FIELD_NUMBER;
+        hash = (53 * hash) + getAge();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Dog parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hongguo.netty.proto.DataInfo.Dog prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code tutorial.Dog}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:tutorial.Dog)
+        com.hongguo.netty.proto.DataInfo.DogOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Dog_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Dog_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hongguo.netty.proto.DataInfo.Dog.class, com.hongguo.netty.proto.DataInfo.Dog.Builder.class);
+      }
+
+      // Construct using com.hongguo.netty.proto.DataInfo.Dog.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        age_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Dog_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hongguo.netty.proto.DataInfo.Dog getDefaultInstanceForType() {
+        return com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hongguo.netty.proto.DataInfo.Dog build() {
+        com.hongguo.netty.proto.DataInfo.Dog result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hongguo.netty.proto.DataInfo.Dog buildPartial() {
+        com.hongguo.netty.proto.DataInfo.Dog result = new com.hongguo.netty.proto.DataInfo.Dog(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.age_ = age_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hongguo.netty.proto.DataInfo.Dog) {
+          return mergeFrom((com.hongguo.netty.proto.DataInfo.Dog)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hongguo.netty.proto.DataInfo.Dog other) {
+        if (other == com.hongguo.netty.proto.DataInfo.Dog.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasAge()) {
+          setAge(other.getAge());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasAge()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hongguo.netty.proto.DataInfo.Dog parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hongguo.netty.proto.DataInfo.Dog) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int age_ ;
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public boolean hasAge() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public int getAge() {
+        return age_;
+      }
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public Builder setAge(int value) {
+        bitField0_ |= 0x00000002;
+        age_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public Builder clearAge() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        age_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:tutorial.Dog)
+    }
+
+    // @@protoc_insertion_point(class_scope:tutorial.Dog)
+    private static final com.hongguo.netty.proto.DataInfo.Dog DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hongguo.netty.proto.DataInfo.Dog();
+    }
+
+    public static com.hongguo.netty.proto.DataInfo.Dog getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Dog>
+        PARSER = new com.google.protobuf.AbstractParser<Dog>() {
+      @java.lang.Override
+      public Dog parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Dog(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Dog> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Dog> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hongguo.netty.proto.DataInfo.Dog getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:tutorial.Cat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    boolean hasAge();
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    int getAge();
+  }
+  /**
+   * Protobuf type {@code tutorial.Cat}
+   */
+  public  static final class Cat extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:tutorial.Cat)
+      CatOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Cat.newBuilder() to construct.
+    private Cat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Cat() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Cat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              age_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Cat_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Cat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hongguo.netty.proto.DataInfo.Cat.class, com.hongguo.netty.proto.DataInfo.Cat.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AGE_FIELD_NUMBER = 2;
+    private int age_;
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    public boolean hasAge() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required int32 age = 2;</code>
+     */
+    public int getAge() {
+      return age_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAge()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, age_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, age_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hongguo.netty.proto.DataInfo.Cat)) {
+        return super.equals(obj);
+      }
+      com.hongguo.netty.proto.DataInfo.Cat other = (com.hongguo.netty.proto.DataInfo.Cat) obj;
+
+      if (hasName() != other.hasName()) return false;
+      if (hasName()) {
+        if (!getName()
+            .equals(other.getName())) return false;
+      }
+      if (hasAge() != other.hasAge()) return false;
+      if (hasAge()) {
+        if (getAge()
+            != other.getAge()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasAge()) {
+        hash = (37 * hash) + AGE_FIELD_NUMBER;
+        hash = (53 * hash) + getAge();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hongguo.netty.proto.DataInfo.Cat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hongguo.netty.proto.DataInfo.Cat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code tutorial.Cat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:tutorial.Cat)
+        com.hongguo.netty.proto.DataInfo.CatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Cat_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Cat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hongguo.netty.proto.DataInfo.Cat.class, com.hongguo.netty.proto.DataInfo.Cat.Builder.class);
+      }
+
+      // Construct using com.hongguo.netty.proto.DataInfo.Cat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        age_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hongguo.netty.proto.DataInfo.internal_static_tutorial_Cat_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hongguo.netty.proto.DataInfo.Cat getDefaultInstanceForType() {
+        return com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hongguo.netty.proto.DataInfo.Cat build() {
+        com.hongguo.netty.proto.DataInfo.Cat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hongguo.netty.proto.DataInfo.Cat buildPartial() {
+        com.hongguo.netty.proto.DataInfo.Cat result = new com.hongguo.netty.proto.DataInfo.Cat(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.age_ = age_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hongguo.netty.proto.DataInfo.Cat) {
+          return mergeFrom((com.hongguo.netty.proto.DataInfo.Cat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hongguo.netty.proto.DataInfo.Cat other) {
+        if (other == com.hongguo.netty.proto.DataInfo.Cat.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasAge()) {
+          setAge(other.getAge());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasAge()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hongguo.netty.proto.DataInfo.Cat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hongguo.netty.proto.DataInfo.Cat) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int age_ ;
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public boolean hasAge() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public int getAge() {
+        return age_;
+      }
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public Builder setAge(int value) {
+        bitField0_ |= 0x00000002;
+        age_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 age = 2;</code>
+       */
+      public Builder clearAge() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        age_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:tutorial.Cat)
+    }
+
+    // @@protoc_insertion_point(class_scope:tutorial.Cat)
+    private static final com.hongguo.netty.proto.DataInfo.Cat DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hongguo.netty.proto.DataInfo.Cat();
+    }
+
+    public static com.hongguo.netty.proto.DataInfo.Cat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Cat>
+        PARSER = new com.google.protobuf.AbstractParser<Cat>() {
+      @java.lang.Override
+      public Cat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Cat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Cat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Cat> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hongguo.netty.proto.DataInfo.Cat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tutorial_Student_descriptor;
+    internal_static_tutorial_MyDataInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_tutorial_Student_fieldAccessorTable;
+      internal_static_tutorial_MyDataInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_tutorial_Person_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tutorial_Person_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_Dog_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_Dog_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tutorial_Cat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tutorial_Cat_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1728,10 +3630,16 @@ public final class DataInfo {
   static {
     java.lang.String[] descriptorData = {
       "\n\033src/protobuf/DataInfo.proto\022\010tutorial\"" +
-      "5\n\007Student\022\014\n\004name\030\001 \002(\t\022\013\n\003age\030\002 \002(\005\022\017\n" +
-      "\007address\030\003 \001(\t\"4\n\006Person\022\014\n\004name\030\001 \002(\t\022\013" +
-      "\n\003age\030\002 \002(\005\022\017\n\007address\030\003 \001(\tB#\n\027com.hong" +
-      "guo.netty.protoB\010DataInfo"
+      "\316\001\n\nMyDataInfo\022/\n\010dataType\030\001 \002(\0162\035.tutor" +
+      "ial.MyDataInfo.DataType\022\"\n\006person\030\002 \001(\0132" +
+      "\020.tutorial.PersonH\000\022\034\n\003dog\030\003 \001(\0132\r.tutor" +
+      "ial.DogH\000\022\034\n\003cat\030\004 \001(\0132\r.tutorial.CatH\000\"" +
+      "(\n\010DataType\022\n\n\006PERSON\020\001\022\007\n\003DOG\020\002\022\007\n\003CAT\020" +
+      "\003B\005\n\003One\"4\n\006Person\022\014\n\004name\030\001 \002(\t\022\013\n\003age\030" +
+      "\002 \002(\005\022\017\n\007address\030\003 \001(\t\" \n\003Dog\022\014\n\004name\030\001 " +
+      "\002(\t\022\013\n\003age\030\002 \002(\005\" \n\003Cat\022\014\n\004name\030\001 \002(\t\022\013\n" +
+      "\003age\030\002 \002(\005B#\n\027com.hongguo.netty.protoB\010D" +
+      "ataInfo"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1745,18 +3653,30 @@ public final class DataInfo {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_tutorial_Student_descriptor =
+    internal_static_tutorial_MyDataInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_tutorial_Student_fieldAccessorTable = new
+    internal_static_tutorial_MyDataInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_tutorial_Student_descriptor,
-        new java.lang.String[] { "Name", "Age", "Address", });
+        internal_static_tutorial_MyDataInfo_descriptor,
+        new java.lang.String[] { "DataType", "Person", "Dog", "Cat", "One", });
     internal_static_tutorial_Person_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_tutorial_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tutorial_Person_descriptor,
         new java.lang.String[] { "Name", "Age", "Address", });
+    internal_static_tutorial_Dog_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_tutorial_Dog_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_Dog_descriptor,
+        new java.lang.String[] { "Name", "Age", });
+    internal_static_tutorial_Cat_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_tutorial_Cat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tutorial_Cat_descriptor,
+        new java.lang.String[] { "Name", "Age", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
