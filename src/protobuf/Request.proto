@@ -12,7 +12,14 @@ message AdvertisementSearchRequest {
 }
 
 message AdvertisementSearchResponse {
-    optional string result = 1;
+    optional string result_code = 1;
     optional int32 page_num = 2;
     optional int32 page_size = 3;
+    repeated Result result_object = 4;
+}
+
+message Result {
+    required string url = 1;
+    optional string title = 2;
+    repeated string snippets = 3;
 }

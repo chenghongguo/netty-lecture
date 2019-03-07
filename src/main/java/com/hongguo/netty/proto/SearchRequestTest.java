@@ -12,5 +12,9 @@ public class SearchRequestTest {
         System.out.println(request.getQuery());
         System.out.println(request.getPageNum());
         System.out.println(request.getPageSize());
+
+        SearchRequest.AdvertisementSearchResponse response = SearchRequest.AdvertisementSearchResponse.newBuilder()
+                .setPageNum(90).setPageSize(10).build();
+        System.out.println(response);
     }
 }

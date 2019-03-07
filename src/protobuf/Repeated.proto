@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package repeated;
+
+option java_package = "com.hongguo.netty.proto.repeated";
+option java_outer_classname = "RepeatedMessage";
+
+message RepeatedObject {
+    optional string name = 1;
+    optional int32 age = 2;
+    repeated string hobbies = 3;
+}
