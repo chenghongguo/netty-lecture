@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package search;
+
+option java_package = "com.hongguo.netty.proto";
+option java_outer_classname = "SearchRequest";
+
+message AdvertisementSearchRequest {
+    optional string query = 1;
+    optional int32 page_num = 2 [default = 1];
+    optional int32 page_size = 3 [default = 10];
+}
+
+message AdvertisementSearchResponse {
+    optional string result = 1;
+    optional int32 page_num = 2;
+    optional int32 page_size = 3;
+}
