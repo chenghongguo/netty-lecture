@@ -4,12 +4,28 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import org.junit.Test;
 
+import java.nio.ByteBuffer;
+
 /**
  * @author hongguo_cheng
  * @date 2019-03-13
  * @description
  */
 public class UnpooledTest {
+
+    @Test
+    public void test3() {
+        ByteBuf buf = Unpooled.copiedBuffer(ByteBuffer.allocate(128));
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+        buf.readBytes("Netty in action".getBytes());
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+        buf.resetReaderIndex();
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+        buf.resetWriterIndex();
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+        buf.writeBytes("Netty in action2".getBytes());
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+    }
 
     @Test
     public void test2() {
