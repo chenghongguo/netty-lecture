@@ -14,6 +14,16 @@ import java.nio.ByteBuffer;
 public class UnpooledTest {
 
     @Test
+    public void test4() {
+        ByteBuf buf = Unpooled.EMPTY_BUFFER;
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+        System.out.println(buf.isReadable() + ", " + buf.isWritable());
+        buf.capacity(1024);
+        buf.readBytes("Netty".getBytes());
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
+    }
+
+    @Test
     public void test3() {
         ByteBuf buf = Unpooled.copiedBuffer(ByteBuffer.allocate(128));
         System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex());
