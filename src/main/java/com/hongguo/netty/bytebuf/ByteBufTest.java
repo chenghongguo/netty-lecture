@@ -16,13 +16,80 @@ import java.nio.charset.Charset;
 public class ByteBufTest {
 
     @Test
+    public void test12() {
+        ByteBuf buf = Unpooled.copiedBuffer("Netty in action rocks", Charset.forName("UTF-8"));
+        int readerIndex = buf.readerIndex();
+        int writerIndex = buf.writerIndex();
+        System.out.println(readerIndex + ", " + writerIndex + ", " + buf.readableBytes() + ", " + buf.writableBytes());
+        System.out.println(buf .capacity() + ", " + buf.maxWritableBytes());
+        System.out.println((char) buf.readByte());
+
+        readerIndex = buf.readerIndex();
+        writerIndex = buf.writerIndex();
+        System.out.println(readerIndex + ", " + writerIndex);
+        buf.writeByte((byte) 'B');
+
+        System.out.println(buf.readerIndex() + ", " + buf.writerIndex());
+    }
+
+    @Test
+    public void test11() {
+        ByteBuf buf = Unpooled.copiedBuffer("Netty in action rocks", Charset.forName("UTF-8"));
+        System.out.println((char) buf.getByte(0));
+
+        int readerIndex = buf.readerIndex();
+        int writerIndex = buf.writerIndex();
+        System.out.println(readerIndex + ", " + writerIndex);
+        buf.setByte(0, (byte) 'B');
+        System.out.println((char) buf.getByte(0));
+
+        System.out.println(buf.readerIndex() + ", " + buf.writerIndex());
+    }
+
+    @Test
+    public void test10() {
+        ByteBuf buf = Unpooled.copiedBuffer("Netty in action rocks", Charset.forName("UTF-8"));
+        ByteBuf slice = buf.copy(0, 15);
+        System.out.println(slice.toString(Charset.forName("UTF-8")));
+        buf.setByte(0, (byte) 'J');
+        System.out.println((char) buf.getByte(0) + ", " + (char) slice.getByte(0));
+    }
+
+    @Test
+    public void test9() {
+        ByteBuf buf = Unpooled.copiedBuffer("Netty in action rocks", Charset.forName("UTF-8"));
+        ByteBuf slice = buf.slice(0, 15);
+        System.out.println(slice.toString(Charset.forName("UTF-8")));
+        buf.setByte(0, (byte) 'J');
+        System.out.println((char) buf.getByte(0) + ", " + (char) slice.getByte(0));
+    }
+
+    @Test
+    public void test8() {
+        ByteBuf buf = Unpooled.buffer();
+        buf.writeBytes("Netty in action".getBytes());
+        ByteBuf duplicate = buf.duplicate();
+        duplicate.writeBytes("Spring in action".getBytes());
+        int length = duplicate.readableBytes();
+        for (int i = 0; i < length; i++) {
+            System.out.print((char) duplicate.readByte());
+        }
+        System.out.println();
+        System.out.println("---------------");
+        length = buf.readableBytes();
+        for (int i = 0; i < length; i++) {
+            System.out.print((char) buf.readByte());
+        }
+    }
+
+    @Test
     public void test7() {
         ByteBuf buf = Unpooled.buffer();
         buf.writeBytes("Netty in action".getBytes());
         int length = buf.readableBytes();
         for (int i = 0; i < length; i++) {
             byte b = buf.readByte();
-            System.out.print((char)b);
+            System.out.print((char) b);
             if (i == 10) {
                 System.out.println(buf.readerIndex() + ", " + buf.writerIndex());
                 buf.discardReadBytes();
@@ -43,7 +110,7 @@ public class ByteBufTest {
         compositeByteBuf.forEach(byteBuf -> {
             int length = byteBuf.readableBytes();
             for (int i = 0; i < length; i++) {
-                System.out.print((char)byteBuf.getByte(i));
+                System.out.print((char) byteBuf.getByte(i));
             }
         });
         System.out.println();
