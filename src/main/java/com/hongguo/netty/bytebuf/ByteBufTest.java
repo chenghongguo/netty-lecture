@@ -5,6 +5,7 @@ import io.netty.buffer.CompositeByteBuf;
 import io.netty.buffer.Unpooled;
 import org.junit.Test;
 
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 /**
@@ -13,6 +14,91 @@ import java.nio.charset.Charset;
  * @description:
  */
 public class ByteBufTest {
+
+    @Test
+    public void test7() {
+        ByteBuf buf = Unpooled.buffer();
+        buf.writeBytes("Netty in action".getBytes());
+        int length = buf.readableBytes();
+        for (int i = 0; i < length; i++) {
+            byte b = buf.readByte();
+            System.out.print((char)b);
+            if (i == 10) {
+                System.out.println(buf.readerIndex() + ", " + buf.writerIndex());
+                buf.discardReadBytes();
+                System.out.println(buf.readerIndex() + ", " + buf.writerIndex());
+            }
+        }
+    }
+
+    @Test
+    public void test6() {
+        CompositeByteBuf compositeByteBuf = Unpooled.compositeBuffer();
+        ByteBuf heapBuf = Unpooled.buffer();
+        ByteBuf directBuf = Unpooled.directBuffer();
+        heapBuf.writeBytes("Netty".getBytes());
+        directBuf.writeBytes(" in action".getBytes());
+        compositeByteBuf.addComponents(heapBuf, directBuf);
+
+        compositeByteBuf.forEach(byteBuf -> {
+            int length = byteBuf.readableBytes();
+            for (int i = 0; i < length; i++) {
+                System.out.print((char)byteBuf.getByte(i));
+            }
+        });
+        System.out.println();
+
+        for (ByteBuf buf : compositeByteBuf) {
+            System.out.println(buf.toString());
+        }
+    }
+
+    @Test
+    public void test5() {
+        ByteBuffer header = ByteBuffer.allocate(10);
+        header.put("Netty".getBytes());
+        ByteBuffer body = ByteBuffer.allocate(20);
+        body.put(" in action".getBytes());
+        ByteBuffer[] message = new ByteBuffer[]{header, body};
+        ByteBuffer messages = ByteBuffer.allocate(header.remaining() + body.remaining());
+        messages.put(header);
+        messages.put(body);
+        messages.flip();
+        while (messages.hasRemaining()) {
+            byte b = messages.get();
+            System.out.println(b);
+        }
+    }
+
+    @Test
+    public void test4() {
+        ByteBuf buf = Unpooled.directBuffer();
+        buf.writeBytes("Netty in Action".getBytes());
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex() + ", " + buf.readableBytes());
+        System.out.println(buf.hasArray());
+        int length = buf.readableBytes();
+        byte[] array = new byte[length];
+        buf.getBytes(0, array);
+        System.out.println(new String(array, Charset.defaultCharset()));
+        System.out.println(buf.capacity() + ", " + buf.readerIndex() + ", " + buf.writerIndex() + ", " + buf.readableBytes());
+    }
+
+    @Test
+    public void test3() {
+        ByteBuf buf = Unpooled.buffer();
+        buf.writeBytes("Netty".getBytes());
+        System.out.println(buf.hasArray());
+        System.out.println(buf.readerIndex() + ", " + buf.writerIndex() + ", " + buf.readableBytes());
+        int length = buf.readableBytes();
+        for (int i = 0; i < length; i++) {
+            byte b = buf.readByte();
+            System.out.println((char) b);
+            System.out.println(buf.readerIndex() + ", " + buf.writerIndex() + ", " + buf.readableBytes());
+        }
+        //  buf.resetReaderIndex();
+        System.out.println((char) buf.getByte(0));
+        System.out.println(buf.readerIndex() + ", " + buf.writerIndex() + ", " + buf.readableBytes());
+    }
 
     public static void main(String[] args) {
         ByteBuf buf = Unpooled.buffer();
@@ -74,7 +160,7 @@ public class ByteBufTest {
         System.out.println("readableBytes = " + buf.readableBytes());
         for (int i = 0; i < buf.readableBytes(); i++) {
             byte b = buf.getByte(i);
-            System.out.println((char)b);
+            System.out.println((char) b);
             System.out.println(buf.readerIndex() + ", " + buf.writerIndex());
         }
     }
